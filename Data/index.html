@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ESP IOT DASHBOARD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="topnav">
+        <h1>Plant Monitor and Watering System</h1>
+    </div>
+    <div class="content">
+        <div class="card-grid">
+            <div class="card">
+                <p class="card-title"><i class="fas fa-thermometer-threequarters" style="color:#059e8a;"></i>
+                    Temperature</p>
+                <p class="reading"><span id="temperature"></span> &deg;C</p>
+            </div>
+            <div class="card">
+                <p class="card-title"> Humidity</p>
+                <p class="reading"><span id="humidity"></span> &percnt;</p>
+            </div>
+            <div class="card">
+                <p class="card-title">Soil Moisture</p>
+                <p class="reading"><span id="moisture"></span> %</p>
+            </div>
+        </div>
+
+        <div class="watering">
+            <div class="card watering-card">
+                <p class="card-title"><i class="fas fa-tint" style="color:#2980b9;"></i> Manual Watering System</p>
+                <div class="switch-container">
+                    <label class="switch-label">Toggle Manual Watering</label>
+                    <label class="switch">
+                        <input type="checkbox" id="wateringSwitch" onchange="toggleWatering()">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="card watering-card">
+                <p class="card-title"><i class="fas fa-tint" style="color:#2980b9;"></i> Auto Watering System</p>
+                <div id="autoModeInput" style="display: block;">
+                    <label for="threshold">Moisture Threshold (%):</label>
+                    <input type="number" id="threshold" name="threshold" min="1" max="100" step="1">
+                    <button onclick="setMoistureThreshold()">Set Threshold</button> 
+                </div> 
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
